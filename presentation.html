@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Presentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    /* logo styling is located here */
+    .imageHere {
+        background-color: #fff;
+        height: 150px;
+        width: 200px;
+        position: absolute;
+        margin: 10px 10px 10px 20px;
+        text-align: center;
+    }
+
+    i {
+        border: solid rgb(78, 78, 78);
+        border-width: 0 10px 10px 0;
+        display: inline-block;
+        padding: 15px;
+        position: absolute;
+    }
+
+    .rightArrow {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        margin-top: 50%;
+        margin-left: 100%;
+        z-index: 5;
+    }
+
+    .leftArrow {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        margin-top: 50%;
+        margin-left: 10%;
+        z-index: 5;
+    }
+
+    i:hover {
+        padding: 17px;
+    }
+
+    .cardArea {
+        width: 100%;
+        height: 100%;
+        -webkit-perspective: 800px;
+        -moz-perspective: 800px;
+        -o-perspective: 800px;
+        perspective: 800px;
+    }
+
+    .cardFlip {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        -webkit-transition: -webkit-transform 1s;
+        -moz-transition: -moz-transform 1s;
+        -o-transition: -o-transform 1s;
+        transition: transform 1s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform-origin: 50% 50%;
+        border: 2px solid gray;
+    }
+
+    .cardFlip div {
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+        color: black;
+        font-size: 30px;
+        position: absolute;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .cardFlip .front1 {
+        background: #fff;
+    }
+
+    .cardFlip .back1 {
+        background: #fff;
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    .cardFlip .front2 {
+        background: #fff;
+    }
+
+    .cardFlip .back2 {
+        background: #fff;
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    .cardFlip .front3 {
+        background: #fff;
+    }
+
+    .cardFlip .back3 {
+        background: #fff;
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    .cardFlip.flipped {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    .card1 {
+        height: 150px;
+        width: 250px;
+        position: absolute;
+        z-index: 0;
+    }
+
+    .card2 {
+        height: 325px;
+        width: 550px;
+        position: absolute;
+        z-index: 1;
+        margin: 130px 30px 30px 17%;
+    }
+
+    #card1Style {
+        color: black;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    #centerCardStyle {
+        color: black;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .front2 {
+        color: black;
+        font-size: 24px;
+        text-align: center;
+    }
+</style>
+<!-- you can also use https://www.toptal.com/designers/subtlepatterns/ for background. I didn't use images for this-->
+
+<body style="background-color:#ccc">
+    <div class="imageHere">
+        INSERT LOGO HERE
+    </div>
+    <div class="jumbotron jumbotron-fluid" style="padding:30px;">
+        <div class="container">
+            <h1 class="display-4" style="text-align: center;">Presentation Title</h1>
+            <p class="lead" style="text-align: center;">Subtitle for the Presentation. If no subtitle, delete.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3" style="margin-left: -20px;">
+                <div class="card">
+                    <div class="card-header">
+                        Information Title
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <h4>Client Identifier</h4>
+                            <hr>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, incidunt molestiae. Harum at iure soluta ad? Voluptatibus quo optio magni velit aut, ex cum! Mollitia quisquam dolorum id blanditiis sapiente?</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7" style="margin-left:40px;">
+                <i class="leftArrow"></i>
+                <div class="card1">
+                    <section class="cardArea">
+                        <div class="cardFlip" onclick="flip()">
+                            <div class="front1" id="card1Style">
+                                    Partition of Card1
+                            </div>
+                            <div class="back1" id="card1Style">
+                                    Range of Card1
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="card2">
+                    <section class="cardArea">
+                        <div class="cardFlip" onclick="flip()">
+                            <div class="front2" id="centerCardStyle">
+                                    Partition of Card2
+                            </div>
+                            <div class="back2" id="centerCardStyle">
+                                    Range of Card2
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="card3" style="height:150px; width: 250px; position:absolute; z-index: 0; margin-left:85%;">
+                    <section class="cardArea">
+                        <div class="cardFlip" onclick="flip()">
+                            <div class="front3" id="card1Style">
+                                    Partition of Card3
+                            </div>
+                            <div class="back3" id="card1Style">
+                                    Range of Card3
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <i class="rightArrow"></i>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+
+        //information placement for the sake of operating carousel below
+        i = 2;
+        let infoPartitionTitles = ["Partition of Card1", "Partition of Card2", "Partition of Card3", "Partition of Card4", "Partition of Card5"];
+        let infoRangeTitles = ["Range of Card1", "Range of Card2", "Range of Card3", "Range of Card4", "Range of Card5"];
+
+
+        //this will flip the cards
+        function flip() {
+            $('.cardFlip').toggleClass('flipped');
+        }
+
+        //carousel effect using left arrow
+        $('.leftArrow').on("click", function () {
+            if (i > 1) {
+                i--;
+                $(".front1").html(infoPartitionTitles[i - 2]);
+                $(".back1").html(infoRangeTitles[i - 2]);
+                $(".front2").html(infoPartitionTitles[i - 1]);
+                $(".back2").html(infoRangeTitles[i - 1]);
+                $(".front3").html(infoPartitionTitles[i]);
+                $(".back3").html(infoRangeTitles[i]);
+            }
+            if (i <= 1) {
+                $(".front1").html("");
+                $(".back1").html("");
+                $(".leftArrow").css("opacity", ".5");
+                $(".front1").css("opacity", ".3");
+                $(".back1").css("opacity", ".3");
+            }
+
+            if(i<5){
+            $(".front3").css("opacity", "1");
+            $(".back3").css("opacity", "1");
+            }
+        });
+
+        //carousel effect using right arrow
+        $('.rightArrow').on("click", function () {
+            $(".front1").html(infoPartitionTitles[i - 1]);
+            $(".back1").html(infoRangeTitles[i - 1]);
+            $(".front2").html(infoPartitionTitles[i]);
+            $(".back2").html(infoRangeTitles[i]);
+            $(".front3").html(infoPartitionTitles[i + 1]);
+            $(".back3").html(infoRangeTitles[i + 1]);
+            i++;
+            if (i > 1) {
+                $(".front1").css("opacity", "1");
+                $(".back1").css("opacity", "1");
+            }
+            if (i > 2) {
+                $(".leftArrow").css("opacity", "1");
+            }
+            if (i === infoPartitionTitles.length){
+                $(".front3").html("");
+                $(".back3").html("");
+                $(".front3").css("opacity", ".3");
+                $(".back3").css("opacity", ".3");
+            }
+        });
+    </script>
+</body>
+
+</html>
