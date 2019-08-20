@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+
+title = "mowgli"
+//var gifURL = "https://www.googleapis.com/books/v1/volumes/s1gVAAAAYAAJ"
+// var gifURL = "https://www.librarything.com/search.php?search=api&searchtype=newwork_titles&searchtype=newwork_titles&sortchoice=0&apikey=e4b52e657323a95577199ec07de55caf";
+//var gifURL = "https://www.omdbapi.com/?t="+ title +"&y=&plot=short&apikey=trilogy";
+//var gifURL = "https://api.themoviedb.org/3/movie/550?api_key=7b60890634361d3cbf02bde3fe68dddc&append_to_response=credits"
+//var gifURL = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='New_England_Patriots'";
+var gifURL = "https://openlibrary.org/search.json?q="+title;
+var khavin;
+var trey;
+var michal;
+var gary;
+var larry = [];
+
+  $.ajax({
+    url: gifURL,
+    method: "GET"
+  }).then(function (response) {
+ console.log(response)
+    console.log("I searched for: " + title)
+  //  console.log(response)
+   t = response.split("\"");
+   for (var i = 0; i <t.length; i++){
+       if (t[i].includes("title")){
+            larry.push(t[i+2]);
+           //console.log(t[i+2].trim(""));
+       }
+   }
+
+console.log(larry)
+  var result = [];
+  $.each(larry, function(i, e) {
+    if ($.inArray(e, result) == -1) result.push(e);
+  });
+
+   console.log(result)
+  });
+
+
+   
+   
+   
+   
+   
+   
+//     // var results = response.data;
+//     writerName = response.Writer;
+//     console.log("everything: " + writerName)
+//     var string =[];
+//     string = writerName.split(",");
+//     for (var i=0; i < string.length; i++){
+//         string2 = string[i].split("(");
+//         for (var j = 0; j <string2.length; j++){
+//             if (string2[j].includes("novel")|| string2[j].includes("book")||string2[j].includes("fairy tale")) {
+//                 khavin = string2[j-1].trim("");
+//             }
+//             else if (string2[j].includes("character")||string2[j].includes("comic")||string2[j].includes("manga")){
+//                 trey = string2[j-1].trim("");
+//             }
+//             else if (string2[j].includes("inspired by")){
+//                 michal = string2[j-1].trim("");
+//             }
+//             if (khavin == undefined && trey == undefined && michal == undefined){
+//                 if (string2[j].includes("story")){
+//                     gary = string2[j-1].trim("");
+//                 }
+//             }
+//         }
+//     }
+//     console.log("Author: " + khavin);
+//     console.log("Comic Books(?): "+ trey);
+//     console.log("Inspired By: "+ michal);
+//     console.log("If nothing else, then here's the story: " + gary);
+//   });
+        
+    </script> 
+</body>
+</html>
